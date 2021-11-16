@@ -144,24 +144,58 @@ Here are eight German traffic signs that I found on the web:
 The model was able to correctly guess all of the traffic signs, which gives an accuracy of 100%.
 
 Following are the top 5 results for the images:
+- Image of Speed limit (100km/h):
+   - Classified correctly.
+   - Probabilities:
+    - **0.99322 : 7 - Speed limit (100km/h)**
+    - 0.00631   : 8 - Speed limit (120km/h)
+    - 0.0004    : 5 - Speed limit (80km/h)
+    - 0.00004   : 3 - Speed limit (60km/h)
+    - 0.00002   : 9 - No passing
 
- [[ 0.99322  0.00631  0.0004   0.00004  0.00002]
- [ 1.       0.       0.       0.       0.     ]
- [ 1.       0.       0.       0.       0.     ]
- [ 1.       0.       0.       0.       0.     ]
- [ 1.       0.       0.       0.       0.     ]
- [ 1.       0.       0.       0.       0.     ]
- [ 1.       0.       0.       0.       0.     ]
- [ 1.       0.       0.       0.       0.     ]]
-Labels:
- [[ 7  8  5  3  9]
- [13 12  9 35  7]
- [35  9  3 15  5]
- [10  5 20  2  9]
- [ 6  1 42 32  0]
- [10  5  7 33  9]
- [12 40  9 11 42]
- [24 29 26 28 30]]
+- Image of yield sign:
+  - Classified correctly.
+  - Probabilities:
+    - **1.000000 : 13 - Yield**
+    - 0.000000 : 12 - Priority road
+    - 0.000000 : 9 - No passing
+    - 0.000000 : 35 - Ahead only
+    - 0.000000 : 7 - Speed limit (100km/h)
+
+- Image of ahead only:
+  - Classified correctly.
+  - Probabilities:
+    - **1.000000 : 35 - Ahead only**
+    - 0.000000 : 9 - No passing
+    - 0.000000 : 3 - Speed limit (60km/h)
+    - 0.000000 : 15 - No vehicles
+    - 0.000000 : 5 - Speed limit (80km/h)
+
+- Image of no passing for vehicles over 3.5 metric tons:
+  - Classified correctly.
+  - Probabilities:
+    - **1.000000 : 10 - No passing for vehicles over 3.5 metric tons**
+
+- Image of end of speed limit (80km/h):
+  - Classified correctly.
+  - Probabilities:
+    - **1.000000 : 6 - End of speed limit (80km/h)**
+
+- Image of no passing for vehicles over 3.5 metric tons:
+  - Classified correctly.
+  - Probabilities:
+    - **1.000000 : 10 - No passing for vehicles over 3.5 metric tons**
+
+- Image of Priority road:
+  - Classified correctly.
+  - Probabilities:
+    - **1.000000 : 12 - Priority road**
+
+
+- Image of Road narrows on the right:
+  - Classified correctly.
+  - Probabilities:
+    - **1.000000 : 24 - Road narrows on the right**
 
  which means that except the first image which is speed limit of 100 kmh, CNN had 100% confidence determining the signs. For the first image it has 99% confidence.
 
