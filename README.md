@@ -70,7 +70,7 @@ Here is an exploratory visualization of the data set. Figure below shows randoml
 
 ![Random Traffic Signs](./examples/trafficsigns.png)
 
-Historgram shows the distribution of the traffic signals in the training dataset where it can be seen that data labeled 2 to 14 appears more frequently than others.
+Historgram shows the distribution of the traffic signals in the training dataset where it can be seen that data between 'Yield' and 'Speed limit (30kmh)' appears more frequently than others.
 
 ![Training Histogram](./examples/y_train.png)
 ### Design and Test a Model Architecture
@@ -122,12 +122,11 @@ To train the model, I used an Adam optimizer. I lowered the learning rate, and i
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* training set accuracy of 93.9
-* validation set accuracy of 93.9 
-* test set accuracy of 90.9
+* training set accuracy of 93.7
+* validation set accuracy of 93.7 
+* test set accuracy of 91.5
 
-I went with LeNet architecture that was provided in the previous excercise. First I tried to just adjust the epoch and learning rate, but it didn't help. I got better results after properly pre-processing the images. After that I lowered the learning rate and adjusted the epoch size.
- 
+I went with LeNet architecture that was provided in the previous excercise. Model works well in the recognition of hand and print written characters. Therefore it could be a good fit for the traffic sign classification. First I tried to just adjust the epoch and learning rate, but it didn't help. I got better results after properly pre-processing the images. After that I lowered the learning rate and adjusted the epoch size. Also, I added dropouts with 50% but my accuracy suffered as a result so I went back to the original. After going back and forth, I got the results I needed by lowering learning rate to 0.0005 and increasing number of epochs to 64. Decreasing the batch size significantly lowered the accuracy therefore I kept the original size.
 
 ### Test a Model on New Images
 
@@ -141,34 +140,34 @@ Here are eight German traffic signs that I found on the web:
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set.
 
-The model was able to correctly guess all of the traffic signs, which gives an accuracy of 100%.
+The model was able to correctly guess 7 out of 8 of the traffic signs, which gives an accuracy of 87.5%.
 
 Following are the top 5 results for the images:
 - Image of Speed limit (100km/h):
-   - Classified correctly.
+   - Classified incorrectly.
    - Probabilities:
-    - **0.99322 : 7 - Speed limit (100km/h)**
-    - 0.00631   : 8 - Speed limit (120km/h)
-    - 0.0004    : 5 - Speed limit (80km/h)
-    - 0.00004   : 3 - Speed limit (60km/h)
-    - 0.00002   : 9 - No passing
+    - **0.46583 : 5 - Speed limit (80km/h)**
+    - 0.30851   : 7 - Speed limit (100km/h)
+    - 0.21643    : 3 - Speed limit (60km/h)
+    - 0.00742   : 8 - End of speed limit (80km/h)
+    - 0.00138   : 15 - No vehicles
 
 - Image of yield sign:
   - Classified correctly.
   - Probabilities:
-    - **1.000000 : 13 - Yield**
-    - 0.000000 : 12 - Priority road
-    - 0.000000 : 9 - No passing
+    - **0.99999 : 13 - Yield**
+    - 0.00001 : 5 - Speed limit (80km/h)
     - 0.000000 : 35 - Ahead only
-    - 0.000000 : 7 - Speed limit (100km/h)
+    - 0.000000 : 15 - No vehicles
+    - 0.000000 : 3 - Speed limit (60km/h)
 
 - Image of ahead only:
   - Classified correctly.
   - Probabilities:
     - **1.000000 : 35 - Ahead only**
+    - 0.000000 : 12 - Priority road
+    - 0.000000 : 13 - Yield
     - 0.000000 : 9 - No passing
-    - 0.000000 : 3 - Speed limit (60km/h)
-    - 0.000000 : 15 - No vehicles
     - 0.000000 : 5 - Speed limit (80km/h)
 
 - Image of no passing for vehicles over 3.5 metric tons:
@@ -197,6 +196,6 @@ Following are the top 5 results for the images:
   - Probabilities:
     - **1.000000 : 24 - Road narrows on the right**
 
- which means that except the first image which is speed limit of 100 kmh, CNN had 100% confidence determining the signs. For the first image it has 99% confidence.
+ Difference between the test set accuracy is 4% which checks out. Model's prediction on the web images is lower than the test set due to the number of images supplied. Since there are only 8 images, each step is 12.5%.
 
 
